@@ -9,41 +9,51 @@
   "releases": [
     {
       "version": "2026.08.28",
-      "summary": "This release adds supported Avatar, Badge, and Timeline template-component workflows, pins Font APEX icon validation to a versioned catalogue, and strengthens routing, validation, packaging, and template-registry integrity.",
+      "summary": "This release adds supported Avatar, Badge, and Timeline template-component workflows, pins Font APEX icon validation to a versioned catalogue, and strengthens routing, validation, packaging, and template-registry integrity. Credits to Github user [https://github.com/zrh535](zrh535) for identifying these bugs and proposing the suggested fixes.",
       "sections": [
         {
           "title": "New Supported Template Components",
           "items": [
-            "Added standalone report-mode Avatar guidance for initials, Font APEX icons, and URL-column images, with explicit child-column mappings and compiler-backed template attributes.",
-            "Added standalone report-mode Badge guidance for minimal and linked Badge regions, including supported source shapes, projected value and state mappings, and validated structured targets.",
-            "Added Timeline template-component guidance for report and partial configurations, with required date, title, and user-name mappings plus supported nested Avatar and Badge settings.",
-            "Timeline Avatar support now requires one matching icon, image, or initials payload. Initials must use a dedicated projected initials column rather than the full user-name column.",
-            "Timeline image avatars and standalone Avatar URL images now accept only `:APP_FILES` or `:APEX_FILES` with a static relative path."
+            "Added report-mode Avatar support for initials, icons, and URL-column images.",
+            "Added report-mode Badge support for minimal and linked Badge regions.",
+            "Added Timeline support for report and partial configurations, including optional Avatar and Badge content.",
+            "Timeline Avatar variants now use one matching icon, image, or initials value; initials come from a dedicated projected column.",
+            "Avatar image URLs now accept only `:APP_FILES` or `:APEX_FILES` with a static relative path."
           ]
         },
         {
           "title": "Validation, Routing, and Security",
           "items": [
-            "Badge validation now supports compiler-valid table/view, SQL, REST, JSON, function-body, property-graph, and sample-data sources while requiring explicit value and state projections.",
-            "Icon requests now retain icon routing when Cards, Dashboards, Interactive Reports, or Lists also match the request. Generic requests continue to load icon guidance lazily.",
-            "Expanded compiler-backed validation for source projections, authorization evidence, nested template-component contracts, safe targets, and unsupported direct page properties."
+            "Badge validation covers table/view, SQL, REST, JSON, function-body, property-graph, and sample-data sources.",
+            "Icon requests keep icon guidance when they also match Cards, Dashboards, Interactive Reports, or Lists.",
+            "Validation now checks source mappings, authorization, nested components, safe targets, and invalid direct page properties."
           ]
         },
         {
           "title": "Font APEX Icons",
           "items": [
-            "Added a vendored Font APEX 26.1 icon and modifier index to provide a pinned source of truth for generated icon values.",
-            "Icon-bearing Avatar, Badge, and Timeline properties now require exactly one catalogue-listed icon and only supported modifiers.",
-            "Added refresh and check tooling for the vendored icon index, including repair handling for missing or malformed generated targets."
+            "Added a pinned Font APEX 26.1 icon and modifier index.",
+            "Avatar, Badge, and Timeline icons must use one indexed icon and supported modifiers.",
+            "Added tooling to check and refresh the icon index."
           ]
         },
         {
           "title": "Template Catalogs and Package Integrity",
           "items": [
-            "Reorganized template-component option inventories so each family owns its local `*_template_options.md` file.",
-            "Expanded the template-component registry and documentation for Avatar, Badge, Timeline, Comments, Flexbox Container, and Media List families.",
-            "Registry verification now detects unregistered template-component directories, root-level option inventories, missing family-owned inventories, and registry entries that omit their required option file.",
-            "Updated packaged-skill validation so template routing, registries, component inventories, and public package contents remain aligned."
+            "Moved each template component's options into its own directory.",
+            "Updated the registry and docs for Avatar, Badge, Timeline, Comments, Flexbox Container, and Media List.",
+            "Registry checks now catch missing, misplaced, or unregistered template files.",
+            "Package checks keep routing, registries, inventories, and public files in sync."
+          ]
+        },
+        {
+          "title": "Merged SQLcl and Runtime Bug Fixes",
+          "items": [
+            "Fixed double decoding of HTML entities during SQLcl script processing.",
+            "Fixed malformed closing script tags in SQLcl runtime scripts.",
+            "Enforced TLS certificate verification in the SQLcl runtime verifier and added regression coverage for verification failures.",
+            "Hardened temporary SQL file creation and cleanup.",
+            "Added regression coverage for HTML decoding, malformed script tags, TLS verification, and temporary SQL-file security."
           ]
         }
       ]
