@@ -18,7 +18,8 @@
             "Added report-mode Badge support for minimal and linked Badge regions.",
             "Added Timeline support for report and partial configurations, including optional Avatar and Badge content.",
             "Timeline Avatar variants now use one matching icon, image, or initials value; initials come from a dedicated projected column.",
-            "Avatar image URLs now accept only `:APP_FILES` or `:APEX_FILES` with a static relative path."
+            "Avatar image URLs now accept only `:APP_FILES` or `:APEX_FILES` with a static relative path.",
+            "Moved each template component's options into its own directory."
           ]
         },
         {
@@ -35,15 +36,6 @@
             "Added a pinned Font APEX 26.1 icon and modifier index.",
             "Avatar, Badge, and Timeline icons must use one indexed icon and supported modifiers.",
             "Added tooling to check and refresh the icon index."
-          ]
-        },
-        {
-          "title": "Template Catalogs and Package Integrity",
-          "items": [
-            "Moved each template component's options into its own directory.",
-            "Updated the registry and docs for Avatar, Badge, Timeline, Comments, Flexbox Container, and Media List.",
-            "Registry checks now catch missing, misplaced, or unregistered template files.",
-            "Package checks keep routing, registries, inventories, and public files in sync."
           ]
         },
         {
